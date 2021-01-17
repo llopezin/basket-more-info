@@ -15,6 +15,7 @@ $helper = $this->helper(Magento\Msrp\Helper\Data::class);
 $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
 ?>
 
+
 <div>
     <p>Item Info</p>
     <?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
@@ -75,7 +76,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                 <?php endif; ?>
 
 
-                <button>
+                <button data-mage-init='{"displayModal": {}}'>
                     More Info
                 </button>
 
