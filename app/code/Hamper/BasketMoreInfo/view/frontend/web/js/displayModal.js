@@ -1,4 +1,5 @@
 define([], function () {
     alert("javascript working");
-    console.log("Hello");
+    alert(document.querySelector(".item-modal"));
+    alert(this);
 });
