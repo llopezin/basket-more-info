@@ -1,8 +1,6 @@
 <?php
-
-
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Hamper_Checkout',
+    'Hamper_BasketMoreInfo',
     __DIR__
 );

@@ -1,14 +1,11 @@
 <?php
 
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-// phpcs:disable Magento2.Templates.ThisInTemplate
-// phpcs:disable Magento2.Files.LineLength.MaxExceeded
-
+/** @var Hamper\BasketMoreInfo\MoreInfo $block */
 /** @var $block \Magento\Checkout\Block\Cart\Item\Renderer */
+?>
+
+<?php
+
 
 $_item = $block->getItem();
 $product = $_item->getProduct();
@@ -17,7 +14,13 @@ $isVisibleProduct = $product->isVisibleInSiteVisibility();
 $helper = $this->helper(Magento\Msrp\Helper\Data::class);
 $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
 ?>
-<h1>This is my custom template</h1>
+
+<div>
+    <p>Item Info</p>
+    <?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
+</div>
+
+
 <tbody class="cart item">
     <tr class="item-info">
         <td data-th="<?= $block->escapeHtml(__('Item')) ?>" class="col item">
@@ -40,6 +43,10 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                         <?= $block->escapeHtml($block->getProductName()) ?>
                     <?php endif; ?>
                 </strong>
+
+
+
+
                 <?php if ($_options = $block->getOptionList()) : ?>
                     <dl class="item-options">
                         <?php foreach ($_options as $_option) : ?>
@@ -66,11 +73,17 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                 <?php if ($addInfoBlock) : ?>
                     <?= $addInfoBlock->setItem($_item)->toHtml() ?>
                 <?php endif; ?>
+
+
+                <button>
+                    More Info
+                </button>
+
+
             </div>
-
-
-            <button>More info</button>
         </td>
+
+
 
         <?php if ($canApplyMsrp) : ?>
             <td class="col msrp" data-th="<?= $block->escapeHtml(__('Price')) ?>">
