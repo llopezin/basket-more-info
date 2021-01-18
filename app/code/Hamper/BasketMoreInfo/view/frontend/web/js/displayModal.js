@@ -1,1 +1,3 @@
-alert("javascript working");
+define([], function () {
+    alert("javascript working");
+});

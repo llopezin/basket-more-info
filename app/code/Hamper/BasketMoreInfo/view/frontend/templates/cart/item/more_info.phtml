@@ -19,6 +19,8 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
 <div>
     <p>Item Info</p>
     <?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
+    <p><?= $block->escapeHtml($_item->getSku()) ?></p>
+    <p><?= $block->escapeHtml($product->getDescription()) ?></p>
 </div>
 
 
