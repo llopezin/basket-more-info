@@ -13,18 +13,12 @@ $isVisibleProduct = $product->isVisibleInSiteVisibility();
 /** @var \Magento\Msrp\Helper\Data $helper */
 $helper = $this->helper(Magento\Msrp\Helper\Data::class);
 $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
-$productDescription = $objectManager->get('Magento\Catalog\Model\Product')
 ?>
 
 
-<div class="item-modal">
+<div>
     <p>Item Info</p>
     <?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
-    <p><?= $block->escapeHtml($_item->getId()) ?></p>
-    <p><?= $block->escapeHtml($_item->getproduct()->getData('description')) ?></p>
-    <p><?= $block->escapeHtml($_item->getSku()) ?></p>
-
-
 </div>
 
 
